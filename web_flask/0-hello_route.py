@@ -1,3 +1,8 @@
+#!/usr/bin/python3
+"""
+Defines a basic flask web app
+"""
+
 from flask import Flask
 
 app = Flask(__name__)
