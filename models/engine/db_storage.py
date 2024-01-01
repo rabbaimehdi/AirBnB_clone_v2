@@ -13,7 +13,6 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import relationship, scoped_session, sessionmaker
 
 
-
 class DBStorage:
     """atabase storage engine.
 
@@ -52,7 +51,7 @@ class DBStorage:
             objects.extend(self.__session.query(Review).all())
             objects.extend(self.__session.query(Amenity).all())
         else:
-            if type(cls) == str:
+            if isinstance(cls, str):
                 cls = eval(cls)
             objects = self.__session.query(cls)
         return {"{}.{}".format(type(o).__name__, o.id): o for o in objects}
